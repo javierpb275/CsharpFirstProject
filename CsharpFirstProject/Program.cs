@@ -10,16 +10,16 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            string phrase = "practicing" + " strings";
-            Console.WriteLine("Hello\nWorld");
-            Console.WriteLine("Hello\"World\"");
-            Console.WriteLine(phrase);
-            Console.WriteLine(phrase.Length);
-            Console.WriteLine(phrase.ToUpper());
-            Console.WriteLine(phrase.Contains("strings"));//True or False
-            Console.WriteLine(phrase[0]);//p
-            Console.WriteLine(phrase.IndexOf('r'));//1 (if it is not inside the string: -1)
-            Console.WriteLine(phrase.Substring(2, 5));//actic
+            int num = 6;
+            num++;
+            num--;
+            Console.WriteLine(num);
+            Console.WriteLine(Math.Abs(-num));//6
+            int sixToThePowerOf2 = (int)Math.Pow(num, 2);
+            Console.WriteLine(sixToThePowerOf2);//36
+            Console.WriteLine(Math.Sqrt(sixToThePowerOf2));//6
+            Console.WriteLine(Math.Max(sixToThePowerOf2, num));//the biggest: 36
+            Console.WriteLine(Math.Round(4.5));//4
             Console.ReadLine();
         }
     }
