@@ -10,6 +10,8 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello World");
+            Console.ReadLine();
         }
     }
 }

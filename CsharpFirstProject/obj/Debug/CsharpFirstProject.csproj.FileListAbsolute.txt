@@ -1,0 +1,8 @@
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\bin\Debug\CsharpFirstProject.exe.config
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\bin\Debug\CsharpFirstProject.exe
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\bin\Debug\CsharpFirstProject.pdb
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\obj\Debug\CsharpFirstProject.csproj.AssemblyReference.cache
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\obj\Debug\CsharpFirstProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\obj\Debug\CsharpFirstProject.csproj.CoreCompileInputs.cache
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\obj\Debug\CsharpFirstProject.exe
+C:\Users\javie\Desktop\c-sharp-projects\CsharpFirstProject\CsharpFirstProject\obj\Debug\CsharpFirstProject.pdb
