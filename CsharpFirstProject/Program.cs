@@ -10,36 +10,36 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
+            Console.Write("Enter a number: ");
+            double num1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter Operator: ");
+            string op = Console.ReadLine();
+            Console.Write("Enter a number: ");
+            double num2 = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine(GetMax(1, 2, 3));
-           
+            if (op == "+")
+            {
+                Console.WriteLine(num1 + num2);
+            }
+            else if (op == "-")
+            {
+                Console.WriteLine(num1 - num2);
+            }
+            else if (op == "/")
+            {
+                Console.WriteLine(num1 / num2);
+            }
+            else if (op == "*")
+            {
+                Console.WriteLine(num1 * num2);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Operator");
+            }
 
             Console.ReadLine();
         }
 
-        static int GetMax(int num1, int num2, int num3)
-        {
-            int result = 0;
-            if (num1 >= num2 && num1 >= num3)
-            {
-                result = num1;
-            }
-            else if (num2 >= num1 && num2 >= num3)
-            {
-                result = num2;
-            }
-            else if (num3 >= num1 && num3 >= num2)
-            {
-                result = num3;
-            }
-            else if (num3 == num1 && num3 != num2)
-            {
-                result = 0;
-            }
-
-            return result;
-        }
-
-        
     }
 }
