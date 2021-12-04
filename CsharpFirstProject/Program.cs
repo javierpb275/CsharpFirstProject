@@ -10,27 +10,34 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            bool isMale = false;
-            bool isTall = true;
 
-            if (isMale && isTall)// || (or)
-            {
-                Console.WriteLine("You are a tall male.");
-            } 
-            else if (isMale && !isTall)
-            {
-                Console.WriteLine("You are a short male.");
-            }
-            else if (!isMale && isTall)
-            {
-                Console.WriteLine("You are not male but you are tall.");
-            }
-            else 
-            {
-                Console.WriteLine("You are neither male nor tall.");    
-            }
+            Console.WriteLine(GetMax(1, 2, 3));
+           
 
             Console.ReadLine();
+        }
+
+        static int GetMax(int num1, int num2, int num3)
+        {
+            int result = 0;
+            if (num1 >= num2 && num1 >= num3)
+            {
+                result = num1;
+            }
+            else if (num2 >= num1 && num2 >= num3)
+            {
+                result = num2;
+            }
+            else if (num3 >= num1 && num3 >= num2)
+            {
+                result = num3;
+            }
+            else if (num3 == num1 && num3 != num2)
+            {
+                result = 0;
+            }
+
+            return result;
         }
 
         
