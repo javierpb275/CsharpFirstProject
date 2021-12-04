@@ -10,15 +10,29 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            int cubedNumber = Cube(5);
-            Console.WriteLine(cubedNumber);
+            bool isMale = false;
+            bool isTall = true;
+
+            if (isMale && isTall)// || (or)
+            {
+                Console.WriteLine("You are a tall male.");
+            } 
+            else if (isMale && !isTall)
+            {
+                Console.WriteLine("You are a short male.");
+            }
+            else if (!isMale && isTall)
+            {
+                Console.WriteLine("You are not male but you are tall.");
+            }
+            else 
+            {
+                Console.WriteLine("You are neither male nor tall.");    
+            }
+
             Console.ReadLine();
         }
 
-        static int Cube(int num)
-        {
-            int result = num * num * num;
-            return result;
-        }
+        
     }
 }
