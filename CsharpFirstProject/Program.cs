@@ -10,7 +10,12 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+
+            string characterName = "John";
+            int characterAge;
+            characterAge = 35;
+
+            Console.WriteLine("Hello, I am " + characterName + ". I am " + characterAge + " years old.");
             Console.ReadLine();
         }
     }
