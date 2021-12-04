@@ -10,13 +10,15 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            SayHi("pepe", 27);
+            int cubedNumber = Cube(5);
+            Console.WriteLine(cubedNumber);
             Console.ReadLine();
         }
 
-        static void SayHi(string name, int age)
+        static int Cube(int num)
         {
-            Console.WriteLine("hello " + name + " your are " + age);
+            int result = num * num * num;
+            return result;
         }
     }
 }
