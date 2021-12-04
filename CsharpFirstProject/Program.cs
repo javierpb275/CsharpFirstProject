@@ -10,12 +10,13 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            int[] luckyNumbers = { 1, 2, 3, 4, 5, };
-            string[] friends = new string[5];//this array is able to hold 5 values
-            friends[0] = "Jimmy";
-            Console.WriteLine(luckyNumbers[1]);//2
-            Console.WriteLine(friends[0]);//Jimmy
+            SayHi("pepe", 27);
             Console.ReadLine();
+        }
+
+        static void SayHi(string name, int age)
+        {
+            Console.WriteLine("hello " + name + " your are " + age);
         }
     }
 }
