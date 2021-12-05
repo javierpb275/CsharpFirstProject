@@ -10,23 +10,18 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(GetPow(3, 2));
+            int[,] numberGrid = {
+                { 1, 2 }, 
+                { 3, 4 }, 
+                { 5, 6 }
+            };
+
+            int[,] numberGrid2 = new int[2,3];//2 elements and each one has three elements 
+
+            
+            Console.WriteLine(numberGrid[1, 1]);//4
             Console.ReadLine();
         }
-
-        static int GetPow(int baseNum, int powNum)
-        {
-            int result = 1;
-
-            for (int i = 0; i < powNum; i++)
-            {
-                result *= baseNum;
-            }
-
-            return result;
-        }
-
-        
 
     }
 }
