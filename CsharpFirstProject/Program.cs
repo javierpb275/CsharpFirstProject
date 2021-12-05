@@ -11,16 +11,12 @@ namespace CsharpFirstProject
         static void Main(string[] args)
         {
 
-            Book book1 = new Book("Harry Potter", "JK Rowling", 400);
-            Book book2 = new Book();
+            Student student1 = new Student("Jim", "Business", 2.8);
+            Student student2 = new Student("Pam", "Art", 3.6);
 
-            book2.title = "The hobbit";
-            book2.author = "Tolkien";
-            book2.pages = 700;
-
-            Console.WriteLine(book1.author);
-            Console.WriteLine(book2.pages);
-
+            Console.WriteLine(student1.HasHonors());
+            Console.WriteLine(student2.HasHonors());
+            
             Console.ReadLine();
 
         }
