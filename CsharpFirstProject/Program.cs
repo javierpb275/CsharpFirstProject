@@ -10,13 +10,14 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
+            //ratings: G, PG, PG-13, R, NR
 
-            Student student1 = new Student("Jim", "Business", 2.8);
-            Student student2 = new Student("Pam", "Art", 3.6);
+            Movie movie1 = new Movie("Jaws", "Steven Spielberg", "PG-13");
+            Movie movie2 = new Movie("Shrek", "Adam Adamson", "PG");
+            movie2.Rating = "whatever";
+            Console.WriteLine(movie1.Rating);
+            Console.WriteLine(movie2.Rating);
 
-            Console.WriteLine(student1.HasHonors());
-            Console.WriteLine(student2.HasHonors());
-            
             Console.ReadLine();
 
         }
