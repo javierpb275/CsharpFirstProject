@@ -10,22 +10,36 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            int index = 1;
+            string secretWord = "hello";
 
-            int index2 = 6;
+            string guess = "";
 
-            while (index <= 5)
+            int guessCount = 0;
+            int guessLimit = 3;
+            bool outOfGuesses = false;
+
+            while (guess != secretWord && !outOfGuesses)
             {
-                Console.WriteLine(index);
-                index++;
+                if (guessCount < guessLimit)
+                {
+                    Console.Write("Enter guess: ");
+                    guess = Console.ReadLine();
+                    guessCount++;
+                }
+                else
+                {
+                    outOfGuesses = true;
+                }
             }
 
-            do
+            if (outOfGuesses)
             {
-                Console.WriteLine(index2);
-            } while (index2 <= 5);
-
-
+                Console.WriteLine("You lose!");
+            }
+            else
+            {
+                Console.WriteLine("You win!");
+            }
 
             Console.ReadLine();
         }
