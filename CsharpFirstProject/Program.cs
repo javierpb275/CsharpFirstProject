@@ -10,17 +10,30 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            int[,] numberGrid = {
-                { 1, 2 }, 
-                { 3, 4 }, 
-                { 5, 6 }
-            };
 
-            int[,] numberGrid2 = new int[2,3];//2 elements and each one has three elements 
+            try
+            {
+                Console.Write("Enter a number: ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter another number: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(num1 / num2);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("DIVIDE BY ZERO EXCEPTION: " + ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("FORMAT EXCEPTION: " + ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("FINALLY");
+            }
 
-            
-            Console.WriteLine(numberGrid[1, 1]);//4
             Console.ReadLine();
+
         }
 
     }
