@@ -10,48 +10,64 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            //1.5m: decimal
-            Console.WriteLine(12.3m);
+            //Add parentheses to make our intention clear to the compiler
+            string firstName = "Bob";
+            int widgetsSold = 7;
+            Console.WriteLine(firstName + " sold " + (widgetsSold + 7) + " widgets.");
 
-            //The var keyword tells the compiler to infer the data type of the variable based on the value it is initialized to.
-            var message = "Hello World!";
-            //message = 10.0m; you cannot give it a value that is not a string
-            //var whatever; with var you must initialize the variable
+            //Add code to perform division using literal decimal data.
+            decimal decimalQuotient = 7.0m / 5;
+            Console.WriteLine("Decimal quotient: " + decimalQuotient);
 
-            //Character Escape Sequences:
+            //However, the following lines of code won't work (or give inaccurate results):
+            /*int decimalQuotient1 = 7 / 5.0m;
+            int decimalQuotient2 = 7.0m / 5;
+            int decimalQuotient3 = 7.0m / 5.0m;*/
+            decimal decimalQuotient4 = 7 / 5;
 
-            Console.WriteLine("Hello\nWorld!");
-            Console.WriteLine("Hello\tWorld!");
-            Console.WriteLine("Hello \"World\"!");
+            //Add code to perform division using literal decimal data
+            int first = 7;
+            int second = 5;
+            decimal quotient = (decimal)first / (decimal)second;
+            Console.WriteLine(quotient);
 
-            Console.WriteLine("c:\\source\\repos");//c:\source\repos
+            Console.WriteLine("Modulus of 200 / 5 : " + (200 % 5));
+            Console.WriteLine("Modulus of 7 / 5: " + (7 % 5));
 
-            //A verbatim string literal will keep all whitespace and characters without the need to escape the backslash
-            Console.WriteLine(@"   c:\source\repos   
-            (this is where your code goes)");
+            int value = 1;
 
-            //You can also add encoded characters in literal strings using the \u escape sequence, then a four-character code representing some character in Unicode (UTF-16).
-            // Kon'nichiwa World
-            Console.WriteLine("\u3053\u3093\u306B\u3061\u306F World!");
-            // To generate Japanese invoices:
-            // Nihon no seikyū-sho o seisei suru ni wa:
-            Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
-            Console.WriteLine(@"c:\invoices\app.exe -j");
+            value = value + 1;
+            Console.WriteLine("First increment: " + value);
 
-            //Combine verbatim literals and string interpolation
-            string projectName = "First-Project";
-            Console.WriteLine($@"C:\Output\{projectName}\Data");
+            value += 1;
+            Console.WriteLine("Second increment: " + value);
 
-            //exercise:
-            Console.WriteLine("EXERCISE");
-            string projectName2 = "ACME";
-            string englishLocation = $@"c:\Exercise\{projectName2}\data.txt";
-            Console.WriteLine($"View English output:\n\t\t{englishLocation}\n");
+            value++;
+            Console.WriteLine("Third increment: " + value);
 
-            string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
-            string russianLocation = $@"c:\Exercise\{projectName2}\ru-RU\data.txt";
-            Console.WriteLine($"{russianMessage}:\n\t\t{russianLocation}\n");
+            value = value - 1;
+            Console.WriteLine("First decrement: " + value);
 
+            value -= 1;
+            Console.WriteLine("Second decrement: " + value);
+
+            value--;
+            Console.WriteLine("Third decrement: " + value);
+
+
+            int value2 = 1;
+            value2++;
+            Console.WriteLine("First: " + value2);//2
+            Console.WriteLine("Second: " + value2++);//2
+            Console.WriteLine("Third: " + value2);//3
+            Console.WriteLine("Fourth: " + (++value2));//4
+
+
+            //fahrenheit
+            int fahrenheit = 94;
+            decimal celsius = (fahrenheit - 32m) * (5m / 9m);
+            Console.WriteLine("The temperature is " + celsius + " Celsius.");
+            Console.WriteLine(5 / 10);
             Console.ReadLine();
 
         }
