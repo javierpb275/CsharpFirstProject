@@ -14,99 +14,53 @@ namespace CsharpFirstProject
 
             ItalianChef iChef1 = new ItalianChef();
 
-            //switch exercise
-            // SKU = Stock Keeping Unit
-            string sku = "01-MN-L";
+            
+            Random random = new Random();
+            int current = random.Next(1, 11);
 
-            string[] product = sku.Split('-');
-
-            string type = "";
-            string color = "";
-            string size = "";
-
-            switch (product[0])
+            do
             {
-                case "01":
-                    type = "Sweat shirt";
-                    break;
-                case "02":
-                    type = "T-Shirt";
-                    break;
-                case "03":
-                    type = "Sweat pants";
-                    break;
-                default:
-                    type = "Other";
-                    break;
-            }
+                current = random.Next(1, 11);
 
-            switch (product[1])
+                //continue: If the value of current is set to a random value greater or equal to 8,
+                //then we will skip the next line of code, which prints the value to the output window.
+                //continue will skips execution of current iteration so that nothing greater than 7 is printed.
+                if (current >= 8) continue;
+
+                Console.WriteLine(current);
+            } while (current != 7);
+
+            /*
+            while (current >= 3)
             {
-                case "BL":
-                    color = "Black";
-                    break;
-                case "MN":
-                    color = "Maroon";
-                    break;
-                default:
-                    color = "White";
-                    break;
+                Console.WriteLine(current);
+                current = random.Next(1, 11);
             }
+            Console.WriteLine($"Last number: {current}");
+            */
 
-            switch (product[2])
+            //game exercise:
+
+            int hero = 10;
+            int monster = 10;
+
+            Random dice = new Random();
+
+            do
             {
-                case "S":
-                    size = "Small";
-                    break;
-                case "M":
-                    size = "Medium";
-                    break;
-                case "L":
-                    size = "Large";
-                    break;
-                default:
-                    size = "One Size Fits All";
-                    break;
-            }
+                int roll = dice.Next(1, 11);
+                monster -= roll;
+                Console.WriteLine($"Monster was damaged and lost {roll} health and now has {monster} health.");
 
-            Console.WriteLine($"Product: {size} {color} {type}");
+                if (monster <= 0) continue;
 
-            //for loop
-            for (int i = 0; i < 10; i += 3)
-            {
-                Console.WriteLine(i);
-            }
+                roll = dice.Next(1, 11);
+                hero -= roll;
+                Console.WriteLine($"Hero was damaged and lost {roll} health and now has {hero} health.");
 
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(i);
-                if (i == 7) break;
-            }
+            } while (hero > 0 && monster > 0);
 
-            string[] names = { "Alex", "Eddie", "David", "Michael" };
-            for (int i = names.Length - 1; i >= 0; i--)
-            {
-                Console.WriteLine(names[i]);
-            }
-
-            string[] names2 = { "Alex", "Eddie", "David", "Michael" };
-            for (int i = 0; i < names2.Length; i++)
-                if (names2[i] == "David") names2[i] = "Sammy";
-
-            foreach (var name in names2) Console.WriteLine(name);
-
-            //for loop exercise
-            for (int i = 1; i < 101; i++)
-            {
-                if ((i % 3 == 0) && (i % 5 == 0))
-                    Console.WriteLine($"{i} - FizzBuzz");
-                else if (i % 3 == 0)
-                    Console.WriteLine($"{i} - Fizz");
-                else if (i % 5 == 0)
-                    Console.WriteLine($"{i} - Buzz");
-                else
-                    Console.WriteLine($"{i}");
-            }
+            Console.WriteLine(hero > monster ? "Hero wins!" : "Monster wins!");
 
             Console.ReadLine();
 
