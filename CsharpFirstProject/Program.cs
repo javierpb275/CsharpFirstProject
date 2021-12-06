@@ -10,11 +10,10 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            Song song1 = new Song("Under the bridge", "Red Hot Chili Peppers", 264);
-            Song song2 = new Song("One Dance", "Drake", 180);
 
-            Console.WriteLine(Song.songCount);
-            Console.WriteLine(song1.getSongCount());
+            //UsefulTools usefultool1 = new UsefulTools();: You cannot create an instance of the static class
+
+            UsefulTools.SayHi("pepe");//static methods belong to the class
 
             Console.ReadLine();
 

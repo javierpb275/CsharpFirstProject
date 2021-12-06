@@ -49,6 +49,7 @@
     <Compile Include="Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsefulTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
