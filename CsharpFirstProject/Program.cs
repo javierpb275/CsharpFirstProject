@@ -11,9 +11,14 @@ namespace CsharpFirstProject
         static void Main(string[] args)
         {
 
-            //UsefulTools usefultool1 = new UsefulTools();: You cannot create an instance of the static class
+            Chef chef = new Chef();
+            chef.MakeChicken();
+            chef.MakeSpecialDish();
 
-            UsefulTools.SayHi("pepe");//static methods belong to the class
+            ItalianChef iChef = new ItalianChef();
+            iChef.MakeChicken();
+            iChef.MakePasta();
+            iChef.MakeSpecialDish();
 
             Console.ReadLine();
 

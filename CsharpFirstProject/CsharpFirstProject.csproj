@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="Chef.cs" />
+    <Compile Include="ItalianChef.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Song.cs" />
     <Compile Include="Student.cs" />
