@@ -10,32 +10,25 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
-            int daysUntilExpiration = random.Next(12);
-            int discountPercentage = 0;
+            int[] inventory = { 200, 450, 700, 175, 250 };
+            int sum = 0;
+            int bin = 0;
+            foreach (int items in inventory)
+            {
+                sum += items;
+                bin++;
+                Console.WriteLine($"Bin {bin} = {items} items (Running total: {sum})");
+            }
+            Console.WriteLine($"We have {sum} items in inventory.");
 
-            if (daysUntilExpiration == 0)
-            {
-                Console.WriteLine("Your subscription has expired.");
-            }
-            else if (daysUntilExpiration == 1)
-            {
-                Console.WriteLine("Your subscription expires within a day!");
-                discountPercentage = 20;
-            }
-            else if (daysUntilExpiration <= 5)
-            {
-                Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days.");
-                discountPercentage = 10;
-            }
-            else if (daysUntilExpiration <= 10)
-            {
-                Console.WriteLine("Your subscription will expire soon.  Renew now!");
-            }
+            string[] orderIDs = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
 
-            if (discountPercentage > 0)
+            foreach (string orderID in orderIDs)
             {
-                Console.WriteLine($"Renew now and save {discountPercentage}%.");
+                if (orderID.StartsWith("B"))
+                {
+                    Console.WriteLine(orderID);
+                }
             }
 
             Console.ReadLine();
