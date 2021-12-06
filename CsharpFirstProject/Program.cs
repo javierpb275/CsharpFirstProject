@@ -10,15 +10,18 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
+            //declare variable without specifying the type
+            var name = "pepe";
 
-            Chef chef = new Chef();
-            chef.MakeChicken();
-            chef.MakeSpecialDish();
+            //string interpolation
+            Console.WriteLine($"hello {name}");
 
-            ItalianChef iChef = new ItalianChef();
-            iChef.MakeChicken();
-            iChef.MakePasta();
-            iChef.MakeSpecialDish();
+            //Collections
+            var names = new[] { name , "paco"};
+            foreach (var item in names)
+            {
+                Console.WriteLine($"hello {item.ToUpper()}!");
+            }
 
             Console.ReadLine();
 
