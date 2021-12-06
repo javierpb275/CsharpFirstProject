@@ -10,13 +10,11 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            //ratings: G, PG, PG-13, R, NR
+            Song song1 = new Song("Under the bridge", "Red Hot Chili Peppers", 264);
+            Song song2 = new Song("One Dance", "Drake", 180);
 
-            Movie movie1 = new Movie("Jaws", "Steven Spielberg", "PG-13");
-            Movie movie2 = new Movie("Shrek", "Adam Adamson", "PG");
-            movie2.Rating = "whatever";
-            Console.WriteLine(movie1.Rating);
-            Console.WriteLine(movie2.Rating);
+            Console.WriteLine(Song.songCount);
+            Console.WriteLine(song1.getSongCount());
 
             Console.ReadLine();
 
