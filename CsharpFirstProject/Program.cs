@@ -14,55 +14,86 @@ namespace CsharpFirstProject
 
             ItalianChef iChef1 = new ItalianChef();
 
-            
-            Random random = new Random();
-            int current = random.Next(1, 11);
+            //By adding the casting instruction (int), we're telling the C# compiler
+            //that we understand it's possible we'll lose that precision,
+            //and in this situation, it's fine.
+            decimal myDecimal = 3.14m;
+            Console.WriteLine($"decimal: {myDecimal}");
 
-            do
-            {
-                current = random.Next(1, 11);
+            int myInt = (int)myDecimal;
+            Console.WriteLine($"int: {myInt}");
 
-                //continue: If the value of current is set to a random value greater or equal to 8,
-                //then we will skip the next line of code, which prints the value to the output window.
-                //continue will skips execution of current iteration so that nothing greater than 7 is printed.
-                if (current >= 8) continue;
+            //casting a decimal into a float is a narrowing conversion because I'm losing precision.
+            decimal myDecimal2 = 1.23456789m;
+            float myFloat = (float)myDecimal;
 
-                Console.WriteLine(current);
-            } while (current != 7);
+            Console.WriteLine($"Decimal: {myDecimal2}");
+            Console.WriteLine($"Float: {myFloat}");
 
-            /*
-            while (current >= 3)
-            {
-                Console.WriteLine(current);
-                current = random.Next(1, 11);
-            }
-            Console.WriteLine($"Last number: {current}");
-            */
+            //tostring method:
+            int first = 5;
+            int second = 7;
+            string message = first.ToString() + second.ToString();
+            Console.WriteLine(message);
 
-            //game exercise:
+            //parse method:
+            string first2 = "5";
+            string second2 = "7";
+            int sum = int.Parse(first2) + int.Parse(second2);
+            Console.WriteLine(sum);
 
-            int hero = 10;
-            int monster = 10;
+            //Convert class:
+            string value1 = "5";
+            string value2 = "7";
+            int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+            Console.WriteLine(result);
 
-            Random dice = new Random();
+            //The Convert class is best for converting fractional numbers
+            //into whole numbers (int) because it rounds up the way you would expect.
 
-            do
-            {
-                int roll = dice.Next(1, 11);
-                monster -= roll;
-                Console.WriteLine($"Monster was damaged and lost {roll} health and now has {monster} health.");
 
-                if (monster <= 0) continue;
+            int value3 = (int)1.5m; // casting truncates
+            Console.WriteLine(value3);//1 (always 1)
 
-                roll = dice.Next(1, 11);
-                hero -= roll;
-                Console.WriteLine($"Hero was damaged and lost {roll} health and now has {hero} health.");
-
-            } while (hero > 0 && monster > 0);
-
-            Console.WriteLine(hero > monster ? "Hero wins!" : "Monster wins!");
+            int value4 = Convert.ToInt32(1.5m); // converting rounds up
+            Console.WriteLine(value4);//2 (if 1.499 = 1)
 
             Console.ReadLine();
+
+            //TryParse:
+
+            string value5 = "102";
+            int result2;
+            if (int.TryParse(value5, out result2))
+            {
+                Console.WriteLine($"Measurement: {result2}");
+            }
+            else
+            {
+                Console.WriteLine("Unable to report the measurement.");
+            }
+
+            //exercise:
+            string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+
+            decimal total = 0m;
+            string message2 = "";
+
+            foreach (var value in values)
+            {
+                decimal number;
+                if (decimal.TryParse(value, out number))
+                {
+                    total += number;
+                }
+                else
+                {
+                    message2 += value;
+                }
+            }
+
+            Console.WriteLine($"Message: {message2}");
+            Console.WriteLine($"Total: {total}");
 
         }
 
