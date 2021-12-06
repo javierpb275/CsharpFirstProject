@@ -5,69 +5,50 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CsharpFirstProject
+/*
+ Think of a namespace as the last name, surname or "family name" for a type. 
+A class contains the code that implements a type. Classes are organized into 
+namespaces to prevent naming collisions. After all, when there are thousands 
+of classes, it's possible that there might be a need to reuse a class name. 
+The namespace helps to make sure no two classes have the same full name.
+*/
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //Add parentheses to make our intention clear to the compiler
-            string firstName = "Bob";
-            int widgetsSold = 7;
-            Console.WriteLine(firstName + " sold " + (widgetsSold + 7) + " widgets.");
+            //RANDOM:
+            Random dice = new Random();
+            int roll = dice.Next(1, 7);
+            Console.WriteLine(roll);
 
-            //Add code to perform division using literal decimal data.
-            decimal decimalQuotient = 7.0m / 5;
-            Console.WriteLine("Decimal quotient: " + decimalQuotient);
+            /*An overloaded method is defined with multiple method signatures. 
+             * Overloaded methods provide different ways to call the method or 
+             * provide different types of data.*/
 
-            //However, the following lines of code won't work (or give inaccurate results):
-            /*int decimalQuotient1 = 7 / 5.0m;
-            int decimalQuotient2 = 7.0m / 5;
-            int decimalQuotient3 = 7.0m / 5.0m;*/
-            decimal decimalQuotient4 = 7 / 5;
+            int number = 7;
+            string text = "seven";
 
-            //Add code to perform division using literal decimal data
-            int first = 7;
-            int second = 5;
-            decimal quotient = (decimal)first / (decimal)second;
-            Console.WriteLine(quotient);
+            Console.WriteLine(number);
+            Console.WriteLine();
+            Console.WriteLine(text);
 
-            Console.WriteLine("Modulus of 200 / 5 : " + (200 % 5));
-            Console.WriteLine("Modulus of 7 / 5: " + (7 % 5));
+            Random dice2 = new Random();
+            int roll1 = dice2.Next();
+            int roll2 = dice2.Next(101);
+            int roll3 = dice2.Next(50, 101);
 
-            int value = 1;
+            Console.WriteLine($"First roll: {roll1}");
+            Console.WriteLine($"Second roll: {roll2}");
+            Console.WriteLine($"Third roll: {roll3}");
 
-            value = value + 1;
-            Console.WriteLine("First increment: " + value);
+            //get larger number:
+            int firstValue = 500;
+            int secondValue = 600;
+            int largerValue;
+            largerValue = Math.Max(firstValue, secondValue);
+            Console.WriteLine(largerValue);
 
-            value += 1;
-            Console.WriteLine("Second increment: " + value);
-
-            value++;
-            Console.WriteLine("Third increment: " + value);
-
-            value = value - 1;
-            Console.WriteLine("First decrement: " + value);
-
-            value -= 1;
-            Console.WriteLine("Second decrement: " + value);
-
-            value--;
-            Console.WriteLine("Third decrement: " + value);
-
-
-            int value2 = 1;
-            value2++;
-            Console.WriteLine("First: " + value2);//2
-            Console.WriteLine("Second: " + value2++);//2
-            Console.WriteLine("Third: " + value2);//3
-            Console.WriteLine("Fourth: " + (++value2));//4
-
-
-            //fahrenheit
-            int fahrenheit = 94;
-            decimal celsius = (fahrenheit - 32m) * (5m / 9m);
-            Console.WriteLine("The temperature is " + celsius + " Celsius.");
-            Console.WriteLine(5 / 10);
             Console.ReadLine();
 
         }
