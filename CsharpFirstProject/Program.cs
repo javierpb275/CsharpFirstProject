@@ -14,27 +14,99 @@ namespace CsharpFirstProject
 
             ItalianChef iChef1 = new ItalianChef();
 
-            //you do not need the {} with if statements with one line of code
-            string name = "steve";
-            if (name == "bob") Console.WriteLine("Found Bob");
-            else if (name == "steve") 
-                Console.WriteLine("Found Steve");
-            else Console.WriteLine("Found Chuck");
+            //switch exercise
+            // SKU = Stock Keeping Unit
+            string sku = "01-MN-L";
 
-            //scope exercise:
-            int[] numbers = { 4, 8, 15, 16, 23, 42 };
-            int total = 0;
-            bool found = false;
+            string[] product = sku.Split('-');
 
-            foreach (int number in numbers)
+            string type = "";
+            string color = "";
+            string size = "";
+
+            switch (product[0])
             {
-                total += number;
-                if (number == 42) found = true;
+                case "01":
+                    type = "Sweat shirt";
+                    break;
+                case "02":
+                    type = "T-Shirt";
+                    break;
+                case "03":
+                    type = "Sweat pants";
+                    break;
+                default:
+                    type = "Other";
+                    break;
             }
 
-            if (found) Console.WriteLine("Set contains 42");
+            switch (product[1])
+            {
+                case "BL":
+                    color = "Black";
+                    break;
+                case "MN":
+                    color = "Maroon";
+                    break;
+                default:
+                    color = "White";
+                    break;
+            }
 
-            Console.WriteLine($"Total: {total}");
+            switch (product[2])
+            {
+                case "S":
+                    size = "Small";
+                    break;
+                case "M":
+                    size = "Medium";
+                    break;
+                case "L":
+                    size = "Large";
+                    break;
+                default:
+                    size = "One Size Fits All";
+                    break;
+            }
+
+            Console.WriteLine($"Product: {size} {color} {type}");
+
+            //for loop
+            for (int i = 0; i < 10; i += 3)
+            {
+                Console.WriteLine(i);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+                if (i == 7) break;
+            }
+
+            string[] names = { "Alex", "Eddie", "David", "Michael" };
+            for (int i = names.Length - 1; i >= 0; i--)
+            {
+                Console.WriteLine(names[i]);
+            }
+
+            string[] names2 = { "Alex", "Eddie", "David", "Michael" };
+            for (int i = 0; i < names2.Length; i++)
+                if (names2[i] == "David") names2[i] = "Sammy";
+
+            foreach (var name in names2) Console.WriteLine(name);
+
+            //for loop exercise
+            for (int i = 1; i < 101; i++)
+            {
+                if ((i % 3 == 0) && (i % 5 == 0))
+                    Console.WriteLine($"{i} - FizzBuzz");
+                else if (i % 3 == 0)
+                    Console.WriteLine($"{i} - Fizz");
+                else if (i % 5 == 0)
+                    Console.WriteLine($"{i} - Buzz");
+                else
+                    Console.WriteLine($"{i}");
+            }
 
             Console.ReadLine();
 
