@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsharpFirstProject.Cook;
 
 namespace CsharpFirstProject
 {
@@ -11,16 +12,29 @@ namespace CsharpFirstProject
         static void Main(string[] args)
         {
 
-            int saleAmount = 1001;
+            ItalianChef iChef1 = new ItalianChef();
 
-            int discount = saleAmount > 1000 ? 100 : 50;
+            //you do not need the {} with if statements with one line of code
+            string name = "steve";
+            if (name == "bob") Console.WriteLine("Found Bob");
+            else if (name == "steve") 
+                Console.WriteLine("Found Steve");
+            else Console.WriteLine("Found Chuck");
 
+            //scope exercise:
+            int[] numbers = { 4, 8, 15, 16, 23, 42 };
+            int total = 0;
+            bool found = false;
 
-            Console.WriteLine($"Discount: {discount}");
+            foreach (int number in numbers)
+            {
+                total += number;
+                if (number == 42) found = true;
+            }
 
-            Random coin = new Random();
-            int flip = coin.Next(0, 2);
-            Console.WriteLine((flip == 0) ? "heads" : "tails");
+            if (found) Console.WriteLine("Set contains 42");
+
+            Console.WriteLine($"Total: {total}");
 
             Console.ReadLine();
 

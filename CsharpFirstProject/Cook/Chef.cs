@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CsharpFirstProject
+namespace CsharpFirstProject.Cook
 {
     internal class Chef
     {
