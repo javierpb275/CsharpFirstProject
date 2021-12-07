@@ -14,85 +14,140 @@ namespace CsharpFirstProject
 
             ItalianChef iChef1 = new ItalianChef();
 
-            //Composite Formatting
-            string first = "Hello";
-            string second = "World";
-            string result = string.Format("{0} {1}!", first, second);
-            Console.WriteLine(result);
+            //Index of
+            string message = "Find what is (inside the parentheses)";
 
-            Console.WriteLine("{1} {0}!", first, second);
-            Console.WriteLine("{0} {0} {0}!", first, second);
+            int openingPosition = message.IndexOf('(');
+            int closingPosition = message.IndexOf(')');
 
-           
+            Console.WriteLine(openingPosition);
+            Console.WriteLine(closingPosition);
 
-            //string interpolation
-            string first1 = "Hello";
-            string second1 = "World";
-            Console.WriteLine($"{first1} {second1}!");
-            Console.WriteLine($"{second1} {first1}!");
-            Console.WriteLine($"{first1} {first1} {first1}!");
+            openingPosition += 1;
 
-            //Formatting currency
-            decimal price = 123.45m;
-            int discount = 50;
-            Console.WriteLine($"Price: {price:C} (Save {discount:C})");
-            //if you executed this code on a computer in the USA that has its Windows Display Language set to English,
-            //you'll see the following output: Price: $123.45 (Save $50.00)
-
-            //Formatting numbers
-            decimal measurement = 123456.78912m;
-            Console.WriteLine($"Measurement: {measurement:N4} units");//Measurement: 123,456.7891 units
-
-            //formatting percentages
-            decimal tax = .36785m;
-            Console.WriteLine($"Tax rate: {tax:P2}");//Tax rate: 36.79 %
-
-            //padleft and padright:
-            string paymentId = "769";
-            string payeeName = "Mr. Stephen Ortega";
-            string paymentAmount = "$5,000.00";
-
-            var formattedLine = paymentId.PadRight(6);
-            formattedLine += payeeName.PadRight(24);
-            formattedLine += paymentAmount.PadLeft(10);
-
-            Console.WriteLine("1234567890123456789012345678901234567890");
-            Console.WriteLine(formattedLine);
-
-            //exercise
-            string customerName = "Mr. Jones";
-
-            string currentProduct = "Magic Yield";
-            int currentShares = 2975000;
-            decimal currentReturn = 0.1275m;
-            decimal currentProfit = 55000000.0m;
-
-            string newProduct = "Glorious Future";
-            decimal newReturn = 0.13125m;
-            decimal newProfit = 63000000.0m;
-
-            Console.WriteLine($"Dear {customerName},");
-            Console.WriteLine($"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.\n");
-            Console.WriteLine($"Currently, you own {currentShares:N} shares at a return of {currentReturn:P}.\n");
-            Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P}.  Given your current volume, your potential profit would be {newProfit:C}.\n");
-
-            Console.WriteLine("Here's a quick comparison:\n");
-
-            string comparisonMessage = "";
-
-            comparisonMessage = currentProduct.PadRight(20);
-            comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
-            comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
-
-            comparisonMessage += "\n";
-            comparisonMessage += newProduct.PadRight(20);
-            comparisonMessage += String.Format("{0:P}", newReturn).PadRight(10);
-            comparisonMessage += String.Format("{0:C}", newProfit).PadRight(20);
-
-            Console.WriteLine(comparisonMessage);
+            int length = closingPosition - openingPosition;
+            Console.WriteLine(message.Substring(openingPosition, length));
 
 
+            string message2 = "What is the value <span>between the tags</span>?";
 
+            const string openSpan2 = "<span>";
+            const string closeSpan2 = "</span>";
+
+            int openingPosition2 = message2.IndexOf(openSpan2);
+            int closingPosition2 = message2.IndexOf(closeSpan2);
+
+            openingPosition2 += openSpan2.Length;
+            int length2 = closingPosition2 - openingPosition2;
+            Console.WriteLine(message2.Substring(openingPosition2, length2));
+
+            //lastindexof:
+
+            string message3 = "(What if) I am (only interested) in the last (set of parentheses)?";
+            int openingPosition3 = message3.LastIndexOf('(');
+
+            openingPosition3 += 1;
+            int closingPosition3 = message3.LastIndexOf(')');
+            int length3 = closingPosition3 - openingPosition3;
+            Console.WriteLine(message3.Substring(openingPosition3, length3));
+
+            //indexofany
+
+            string message4 = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+
+            // The IndexOfAny() helper method requires a char array of characters 
+            // we want to look for:
+
+            char[] openSymbols4 = { '[', '{', '(' };
+
+            // We'll use a slightly different technique for iterating through the 
+            // characters in the string.  This time, we'll use the closing position
+            // of the previous iteration as the starting index for the next open
+            // symbol.  So, we need to initialize the closingPosition variable
+            // to zero:
+
+            int closingPosition4 = 0;
+
+            while (true)
+            {
+                int openingPosition4 = message4.IndexOfAny(openSymbols4, closingPosition4);
+
+                if (openingPosition4 == -1) break;
+
+                string currentSymbol4 = message4.Substring(openingPosition4, 1);
+
+                // Now we must find the matching closing symbol
+                char matchingSymbol4 = ' ';
+
+                switch (currentSymbol4)
+                {
+                    case "[":
+                        matchingSymbol4 = ']';
+                        break;
+                    case "{":
+                        matchingSymbol4 = '}';
+                        break;
+                    case "(":
+                        matchingSymbol4 = ')';
+                        break;
+                }
+
+                // Finally, use the techniques we've already learned to display the sub-string:
+
+                openingPosition4 += 1;
+                closingPosition4 = message4.IndexOf(matchingSymbol4, openingPosition4);
+
+                int length4 = closingPosition4 - openingPosition4;
+                Console.WriteLine(message4.Substring(openingPosition4, length4));
+            }
+
+            //remove method:
+            string data = "12345John Smith          5000  3  ";
+            string updatedData = data.Remove(5, 20);
+            Console.WriteLine(updatedData);
+
+            //replace method
+            string message5 = "This--is--ex-amp-le--da-ta";
+            message5 = message5.Replace("--", " ");
+            message5 = message5.Replace("-", "");
+            Console.WriteLine(message5);
+
+            //exercise:
+            string input = "<div class='product'><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+            string quantity = "";
+            string output = "";
+
+            // Your work here
+
+            const string spanTag = "<span>";
+
+            // Extract the quantity
+            int quantityStart = input.IndexOf(spanTag);
+            int quantityEnd = input.IndexOf("</span>");
+            quantityStart += spanTag.Length;
+            int quantityLength = quantityEnd - quantityStart;
+            quantity = input.Substring(quantityStart, quantityLength);
+
+            // Set output to input, replacing the trademark symbol with the registered trademark symbol
+            output = input.Replace("&trade;", "&reg;");
+
+            // Remove the opening <div> tag
+            int divStart = input.IndexOf("<div");
+            int divEnd = input.IndexOf(">");
+            int divLength = divEnd - divStart;
+            divLength += 1;
+            output = output.Remove(divStart, divLength);
+
+            // Remove the closing <div> tag
+            int divCloseStart = output.IndexOf("</div");
+            int divCloseEnd = output.IndexOf(">", divCloseStart);
+            int divCloseLength = divCloseEnd - divCloseStart;
+            divCloseLength += 1;
+            output = output.Remove(divCloseStart, divCloseLength);
+
+            Console.WriteLine($"Quantity: {quantity}");
+            Console.WriteLine($"Output: {output}");
 
 
             Console.ReadLine();
