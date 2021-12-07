@@ -14,150 +14,88 @@ namespace CsharpFirstProject
 
             ItalianChef iChef1 = new ItalianChef();
 
-            //sort and reverse:
-            string[] pallets = { "B14", "A11", "B12", "A13" };
-
-            Console.WriteLine("Sorted...");
-            Array.Sort(pallets);
-            foreach (var pallet in pallets)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-
-            Console.WriteLine("");
-            Console.WriteLine("Reversed...");
-            Array.Reverse(pallets);
-            foreach (var pallet in pallets)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-
-            //clear:
-            string[] pallets2 = { "B14", "A11", "B12", "A13" };
-            Console.WriteLine("");
-
-            Array.Clear(pallets2, 0, 2);
-            Console.WriteLine($"Clearing 2 ... count: {pallets2.Length}");
-            foreach (var pallet in pallets2)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-            /*When you run the code, you'll see that the values stored in the first two elements of the array have been cleared out. 
-             * As we can see from the Length property and the foreach statement, the elements still exist, but they're now empty.*/
-
-            //access value of cleared element:
-            string[] pallets3 = { "B14", "A11", "B12", "A13" };
-            Console.WriteLine("");
-
-            Console.WriteLine($"Before: {pallets3[0]}");
-            Array.Clear(pallets3, 0, 2);
-            Console.WriteLine($"After: {pallets3[0]}");
-
-            Console.WriteLine($"Clearing 2 ... count: {pallets3.Length}");
-            foreach (var pallet in pallets3)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-
-            /*If you focus on the line of output After: , you may think that the value stored in pallets[0] is an empty string. 
-             * However, the C# Compiler implicitly converts the null value to an empty string for presentation.*/
-
-            //resize:
-            string[] pallets4 = { "B14", "A11", "B12", "A13" };
-            Console.WriteLine("");
-
-            Array.Clear(pallets4, 0, 2);
-            Console.WriteLine($"Clearing 2 ... count: {pallets4.Length}");
-            foreach (var pallet in pallets4)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-
-            Console.WriteLine("");
-            Array.Resize(ref pallets4, 6);
-            Console.WriteLine($"Resizing 6 ... count: {pallets4.Length}");
-
-            pallets4[4] = "C01";
-            pallets4[5] = "C02";
-
-            foreach (var pallet in pallets4)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-
-            Console.WriteLine("");
-            Array.Resize(ref pallets4, 3);
-            Console.WriteLine($"Resizing 3 ... count: {pallets4.Length}");
-
-            foreach (var pallet in pallets4)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-            /*Notice that calling Array.Resize() didn't eliminate the first two null elements. 
-             * Rather, it removed the last three elements -- despite the fact that they contained string values.*/
-
-            //STRINGS:
-
-            //ToCharArray
-            string value = "abc123";
-            char[] valueArray = value.ToCharArray();
-            Array.Reverse(valueArray);
-            string result = new string(valueArray);
+            //Composite Formatting
+            string first = "Hello";
+            string second = "World";
+            string result = string.Format("{0} {1}!", first, second);
             Console.WriteLine(result);
 
-            //Join
-            string value2 = "abc123";
-            char[] valueArray2 = value2.ToCharArray();
-            Array.Reverse(valueArray2);
-            // string result2 = new string(valueArray2);
-            string result2 = String.Join(",", valueArray2);
-            Console.WriteLine(result2);//3,2,1,c,b,a
+            Console.WriteLine("{1} {0}!", first, second);
+            Console.WriteLine("{0} {0} {0}!", first, second);
 
-            //Split
-            string value3 = "abc123";
-            char[] valueArray3 = value3.ToCharArray();
-            Array.Reverse(valueArray3);
-            // string result3 = new string(valueArray3);
-            string result3 = String.Join(",", valueArray3);
-            Console.WriteLine(result3);
+           
 
-            string[] items = result3.Split(',');
-            foreach (string item in items)
-            {
-                Console.WriteLine(item);
-            }
+            //string interpolation
+            string first1 = "Hello";
+            string second1 = "World";
+            Console.WriteLine($"{first1} {second1}!");
+            Console.WriteLine($"{second1} {first1}!");
+            Console.WriteLine($"{first1} {first1} {first1}!");
 
-            //esercise1:
-            string pangram1 = "The quick brown fox jumps over the lazy dog";
+            //Formatting currency
+            decimal price = 123.45m;
+            int discount = 50;
+            Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+            //if you executed this code on a computer in the USA that has its Windows Display Language set to English,
+            //you'll see the following output: Price: $123.45 (Save $50.00)
 
-            string[] message1 = pangram1.Split(' ');
-            string[] newMessage1 = new string[message1.Length];
+            //Formatting numbers
+            decimal measurement = 123456.78912m;
+            Console.WriteLine($"Measurement: {measurement:N4} units");//Measurement: 123,456.7891 units
 
-            for (int i = 0; i < message1.Length; i++)
-            {
-                char[] letters1 = message1[i].ToCharArray();
-                Array.Reverse(letters1);
-                newMessage1[i] = new string(letters1);
-            }
+            //formatting percentages
+            decimal tax = .36785m;
+            Console.WriteLine($"Tax rate: {tax:P2}");//Tax rate: 36.79 %
 
-            string result1 = String.Join(" ", newMessage1);
-            Console.WriteLine(result1);//ehT kciuq nworb xof spmuj revo eht yzal god
+            //padleft and padright:
+            string paymentId = "769";
+            string payeeName = "Mr. Stephen Ortega";
+            string paymentAmount = "$5,000.00";
+
+            var formattedLine = paymentId.PadRight(6);
+            formattedLine += payeeName.PadRight(24);
+            formattedLine += paymentAmount.PadLeft(10);
+
+            Console.WriteLine("1234567890123456789012345678901234567890");
+            Console.WriteLine(formattedLine);
+
+            //exercise
+            string customerName = "Mr. Jones";
+
+            string currentProduct = "Magic Yield";
+            int currentShares = 2975000;
+            decimal currentReturn = 0.1275m;
+            decimal currentProfit = 55000000.0m;
+
+            string newProduct = "Glorious Future";
+            decimal newReturn = 0.13125m;
+            decimal newProfit = 63000000.0m;
+
+            Console.WriteLine($"Dear {customerName},");
+            Console.WriteLine($"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.\n");
+            Console.WriteLine($"Currently, you own {currentShares:N} shares at a return of {currentReturn:P}.\n");
+            Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P}.  Given your current volume, your potential profit would be {newProfit:C}.\n");
+
+            Console.WriteLine("Here's a quick comparison:\n");
+
+            string comparisonMessage = "";
+
+            comparisonMessage = currentProduct.PadRight(20);
+            comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
+            comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
+
+            comparisonMessage += "\n";
+            comparisonMessage += newProduct.PadRight(20);
+            comparisonMessage += String.Format("{0:P}", newReturn).PadRight(10);
+            comparisonMessage += String.Format("{0:C}", newProfit).PadRight(20);
+
+            Console.WriteLine(comparisonMessage);
 
 
-            //exercise2:
-            string orderStream1 = "B123,C234,A345,C15,B177,G3003,C235,B179";
-            string[] items2 = orderStream1.Split(',');
 
-            foreach (var item in items2)
-            {
-                if (item.StartsWith("B"))
-                {
-                    Console.WriteLine(item);
-                }
-            }
+
 
             Console.ReadLine();
-
         }
 
     }
