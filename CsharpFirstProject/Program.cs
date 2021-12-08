@@ -14,19 +14,19 @@ namespace CsharpFirstProject
 
             ItalianChef iChef1 = new ItalianChef();
 
-            List<string> names = new List<string> { "<name>", "ana", "pepe" };
+            var fibonacciNumbers = new List<int> { 1, 1 };
 
-            names.Add("paco");
-            names.Remove("pepe");
-
-            foreach (string name in names)
+            while (fibonacciNumbers.Count < 20)
             {
-                Console.WriteLine($"Hello {name.ToUpper()}");
+                var previous = fibonacciNumbers[fibonacciNumbers.Count - 1];
+                var previous2 = fibonacciNumbers[fibonacciNumbers.Count - 2];
+
+                fibonacciNumbers.Add(previous + previous2);
             }
 
-            for (int i = 0; i < names.Count; i++)
+            foreach (var item in fibonacciNumbers)
             {
-                Console.WriteLine($"Hello {names[i].ToUpper()}");
+                Console.WriteLine(item);
             }
 
 
