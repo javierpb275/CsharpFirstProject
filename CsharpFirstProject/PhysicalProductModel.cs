@@ -2,7 +2,7 @@
 
 namespace CsharpFirstProject
 {
-    internal class PhysicalProductModel
+    internal class PhysicalProductModel : PhysicalProductBase, IProductModel
     {
 
         public string Title { get; set; }

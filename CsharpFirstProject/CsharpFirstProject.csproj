@@ -50,11 +50,16 @@
     <Compile Include="Bank\BankAccount.cs" />
     <Compile Include="Bank\Transaction.cs" />
     <Compile Include="CustomerModel.cs" />
+    <Compile Include="DigitalProductModel.cs" />
     <Compile Include="Entertainment\Book.cs" />
     <Compile Include="Cook\Chef.cs" />
     <Compile Include="Cook\ItalianChef.cs" />
     <Compile Include="Entertainment\Movie.cs" />
     <Compile Include="Entertainment\Song.cs" />
+    <Compile Include="ICustomerModel.cs" />
+    <Compile Include="IDigitalProductModal.cs" />
+    <Compile Include="IProductModel.cs" />
+    <Compile Include="PhysicalProductBase.cs" />
     <Compile Include="PhysicalProductModel.cs" />
     <Compile Include="School\Student.cs" />
     <Compile Include="Program.cs" />
