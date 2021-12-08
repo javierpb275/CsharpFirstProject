@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CsharpFirstProject
+namespace CsharpFirstProject.InterfaceLesson
 {
     internal class PhysicalProductModel : PhysicalProductBase, IProductModel
     {

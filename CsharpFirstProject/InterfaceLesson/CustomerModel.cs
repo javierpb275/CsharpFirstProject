@@ -1,4 +1,4 @@
-﻿namespace CsharpFirstProject
+﻿namespace CsharpFirstProject.InterfaceLesson
 {
     internal class CustomerModel : ICustomerModel
     {

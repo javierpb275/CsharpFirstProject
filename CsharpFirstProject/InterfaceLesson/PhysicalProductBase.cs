@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpFirstProject
+namespace CsharpFirstProject.InterfaceLesson
 {
-    internal interface IDigitalProductModal : IProductModel
+    internal class PhysicalProductBase
     {
-        int TotalDownloadsLeft { get; }
     }
 }
