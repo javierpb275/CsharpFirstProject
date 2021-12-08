@@ -11,10 +11,37 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            AccessDemo demo = new AccessDemo();
-            demo.InternalDemo();
-            demo.PublicDemo();
+            List<PhysicalProductModel> cart = AddSampleData();
+            CustomerModel customer = GetCustomer();
+
+            foreach (PhysicalProductModel prod in cart)
+            {
+                prod.ShipItem(customer);
+            }
+
             Console.ReadLine();
+
+        }
+        private static CustomerModel GetCustomer()
+        {
+            return new CustomerModel
+            {
+                FirstName = "pepe",
+                LastName = "perez",
+                City = "Madrid",
+                EmailAddress = "pepe@gmail.com",
+                PhoneNumber = "123456789"
+            };
+        }
+
+        private static List<PhysicalProductModel> AddSampleData()
+        {
+            List<PhysicalProductModel> output = new List<PhysicalProductModel>();
+            output.Add(new PhysicalProductModel { Title = "Nerf Football"});
+            output.Add(new PhysicalProductModel { Title = "some T-shirt" });
+            output.Add(new PhysicalProductModel { Title = "Hard Drive" });
+
+            return output;
         }
 
     }
