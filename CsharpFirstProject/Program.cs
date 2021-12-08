@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CsharpFirstProject.Cook;
+using CsharpFirstProject.Bank;
 
 namespace CsharpFirstProject
 {
@@ -11,24 +12,29 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
+            var account = new BankAccount("pepe", 10000);
+            Console.WriteLine($"Account {account.Number} was created for {account.Owner} with {account.Balance}.");
 
-            ItalianChef iChef1 = new ItalianChef();
+            account.MakeWithdrawal(100, DateTime.Now, "withdrawing");
+            Console.WriteLine(account.Balance);
+            account.MakeDeposit(2000, DateTime.Now, "depositing");
+            Console.WriteLine(account.Balance);
+            account.MakeWithdrawal(50, DateTime.Now, "Xbox game");
+            Console.WriteLine(account.Balance);
 
-            var fibonacciNumbers = new List<int> { 1, 1 };
+            Console.WriteLine(account.GetAccountHistory());
 
-            while (fibonacciNumbers.Count < 20)
+            try
             {
-                var previous = fibonacciNumbers[fibonacciNumbers.Count - 1];
-                var previous2 = fibonacciNumbers[fibonacciNumbers.Count - 2];
-
-                fibonacciNumbers.Add(previous + previous2);
+                var invalidAccount = new BankAccount("invalid", -55);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("Exception caught creating account with negative balance");
+                Console.WriteLine(e.ToString());
             }
 
-            foreach (var item in fibonacciNumbers)
-            {
-                Console.WriteLine(item);
-            }
-
+            
 
             Console.ReadLine();
         }
