@@ -12,29 +12,21 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            var account = new BankAccount("pepe", 10000);
-            Console.WriteLine($"Account {account.Number} was created for {account.Owner} with {account.Balance}.");
+            // Specify the data source.
+            int[] scores = new int[] { 97, 92, 81, 60 };
 
-            account.MakeWithdrawal(100, DateTime.Now, "withdrawing");
-            Console.WriteLine(account.Balance);
-            account.MakeDeposit(2000, DateTime.Now, "depositing");
-            Console.WriteLine(account.Balance);
-            account.MakeWithdrawal(50, DateTime.Now, "Xbox game");
-            Console.WriteLine(account.Balance);
+            // Define the query expression.
+            IEnumerable<int> scoreQuery =
+                from score in scores
+                where score > 80
+                select score;
 
-            Console.WriteLine(account.GetAccountHistory());
-
-            try
+            // Execute the query.
+            foreach (int i in scoreQuery)
             {
-                var invalidAccount = new BankAccount("invalid", -55);
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                Console.WriteLine("Exception caught creating account with negative balance");
-                Console.WriteLine(e.ToString());
+                Console.Write(i + " ");
             }
 
-            
 
             Console.ReadLine();
         }
