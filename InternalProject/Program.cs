@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CsharpFirstProject.Access;
 
-namespace CsharpFirstProject
+namespace InternalProject
 {
     internal class Program
     {
@@ -13,9 +12,7 @@ namespace CsharpFirstProject
         {
             AccessDemo demo = new AccessDemo();
             demo.InternalDemo();
-            demo.PublicDemo();
             Console.ReadLine();
         }
-
     }
 }

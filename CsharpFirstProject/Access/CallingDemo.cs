@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CsharpFirstProject.Access;
 
-namespace CsharpFirstProject
+namespace CsharpFirstProject.Access
 {
-    internal class Program
+    public class CallingDemo
     {
-        static void Main(string[] args)
+        private void MakeDemoCalls()
         {
             AccessDemo demo = new AccessDemo();
-            demo.InternalDemo();
-            demo.PublicDemo();
-            Console.ReadLine();
-        }
 
+            demo.InternalDemo();
+        }
     }
 }
