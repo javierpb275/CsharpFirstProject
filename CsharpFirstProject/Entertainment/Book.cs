@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpFirstProject
+namespace CsharpFirstProject.Entertainment
 {
     internal class Book
     {
