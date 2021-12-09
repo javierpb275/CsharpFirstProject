@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CsharpFirstProject
+namespace CsharpFirstProject.Data
 {
     internal class SqlDataAccess : DataAccess
     {

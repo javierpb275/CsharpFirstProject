@@ -1,4 +1,4 @@
-﻿namespace CsharpFirstProject
+﻿namespace CsharpFirstProject.Data
 {
     internal interface IDataAccess
     {
