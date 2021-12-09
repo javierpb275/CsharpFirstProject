@@ -49,8 +49,8 @@
     <Compile Include="Access\InheritFromAccessDemo.cs" />
     <Compile Include="Bank\BankAccount.cs" />
     <Compile Include="Bank\Transaction.cs" />
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="IDataAccess.cs" />
+    <Compile Include="Data\DataAccess.cs" />
+    <Compile Include="Data\IDataAccess.cs" />
     <Compile Include="InterfaceLesson\CustomerModel.cs" />
     <Compile Include="InterfaceLesson\DigitalProductModel.cs" />
     <Compile Include="Entertainment\Book.cs" />
@@ -66,8 +66,8 @@
     <Compile Include="School\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlDataAccess.cs" />
-    <Compile Include="SqliteDataAccess.cs" />
+    <Compile Include="Data\SqlDataAccess.cs" />
+    <Compile Include="Data\SqliteDataAccess.cs" />
     <Compile Include="Utils\UsefulTools.cs" />
   </ItemGroup>
   <ItemGroup>
