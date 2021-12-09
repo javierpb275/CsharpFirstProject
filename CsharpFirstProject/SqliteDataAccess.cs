@@ -2,22 +2,23 @@
 
 namespace CsharpFirstProject
 {
-    internal class SqliteDataAccess : IDataAccess
+    internal class SqliteDataAccess : DataAccess
     {
-        public string LoadConnectionString(string name)
+        public override string LoadConnectionString(string name)
         {
-            Console.WriteLine("Load Connection String");
-            return "testConnectionString";
+            string output = base.LoadConnectionString(name);
+            output += " (from SQLite)";
+            return output;
         }
 
-        public void LoadData(string sql)
+        public override void LoadData(string sql)
         {
-            Console.WriteLine("Loading Microsoft SQL Data");
+            Console.WriteLine("Loading SQLite Data");
         }
 
-        public void SaveData(string sql)
+        public override void SaveData(string sql)
         {
-            Console.WriteLine("Saving Data to Microsoft SQL Server");
+            Console.WriteLine("Saving Data to SQLite");
         }
     }
 }

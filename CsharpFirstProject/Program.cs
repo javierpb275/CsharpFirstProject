@@ -11,7 +11,12 @@ namespace CsharpFirstProject
     {
         static void Main(string[] args)
         {
-            List<IDataAccess> databases = new List<IDataAccess>()
+            /*
+            DataAccess da = new SqliteDataAccess();
+            da.LoadConnectionString("");
+            */
+            
+            List<DataAccess> databases = new List<DataAccess>()
            {
                new SqlDataAccess(),
                new SqliteDataAccess()
@@ -19,12 +24,15 @@ namespace CsharpFirstProject
 
             foreach (var db in databases)
             {
+                Console.WriteLine(db.LoadConnectionString("demo"));
+                /*
                 db.LoadConnectionString("demo");
                 db.LoadData("select * from table");
                 db.SaveData("insert into table");
+                */
                 Console.WriteLine();
             }
-
+            
             Console.ReadLine();
 
         }
